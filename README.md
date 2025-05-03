@@ -36,4 +36,45 @@ Um chatbot para WhatsApp criado com Flask e Twilio, que fornece informações at
 - `fallen`, `kscerato`, `yuurih`, `yekindar`, `molodoy`, `sidde` → Estatísticas individuais
 
 ---
+Crie um ambiente virtual e ative:
 
+bash
+python -m venv venv
+venv\Scripts\activate  # no Windows
+Instale as dependências:
+
+bash
+pip install -r requirements.txt
+Crie um arquivo .env com suas credenciais da Twilio:
+
+ini
+TWILIO_ACCOUNT_SID=SEU_SID
+TWILIO_AUTH_TOKEN=SEU_TOKEN
+TWILIO_PHONE_NUMBER=SEU_NUMERO_TWILIO
+
+Inicie o servidor Flask:
+bash
+Copiar
+Editar
+python app.py
+Configure o webhook da Twilio para apontar para http://localhost:5000/webhook.
+
+📌 Observações
+A Twilio precisa de uma URL pública para receber mensagens. Use ngrok para testes locais:
+
+bash
+ngrok http 5000
+O projeto usa scraping do HLTV, que pode mudar seu layout a qualquer momento. Mantenha o código atualizado caso ocorram erros de parsing.
+
+📸 Futuras Melhorias
+Enviar screenshots automáticos com Selenium
+
+Reconhecer variações de escrita dos comandos (ex: “kserato”, “molodói”)
+
+Banco de dados para salvar preferências dos usuários
+
+📬 Contato
+Desenvolvido por Andrei Belotti.
+Entre em contato no LinkedIn ou abra uma issue no repositório.
+
+🧡 Go FURIA!
